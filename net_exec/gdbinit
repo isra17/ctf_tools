@@ -1,0 +1,15 @@
+catch exec
+set follow-fork-mode child
+set detach-on-fork off
+file python
+
+set $resume_count = 2
+define resume
+    set follow-fork-mode child
+    set detach-on-fork off
+
+    inferior $resume_count
+    continue
+    inferior 1
+    continue
+    set $resume_count += 2
