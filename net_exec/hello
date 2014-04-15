@@ -1,0 +1,5 @@
+#!/bin/env python
+
+import sys
+name = input('Your name: ')
+print('Hello ', name, ' from ', sys.argv)
