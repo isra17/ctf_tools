@@ -1,3 +1,4 @@
+#!/bin/env python
 from elftools.elf.elffile import ELFFile
 import sys, os
 
