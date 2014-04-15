@@ -23,17 +23,16 @@ s.listen(1)
 
 while True:
     conn, addr = s.accept()
-
-    print('New incomming connection...')
+    print('connection from %s:%hu' % addr)
 
     if os.fork() == 0:
         if args.user:
             uid = pwd.getpwnam(args.user)[2]
             os.setuid(uid)
 
-        print('Start %s... with params %s' % (args.program, str(args.args)) )
+        print('run %s %s' % (args.program, str(args.args)) )
         ret = subprocess.call([args.program] + args.args, stdout=conn.fileno(), stdin=conn.fileno())
         conn.shutdown(socket.SHUT_RDWR)
         conn.close()
-        print('Program terminated with status %d...' % ret)
+        print('program terminated with status [%d]' % ret)
         sys.exit(0)
