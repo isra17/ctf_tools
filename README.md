@@ -8,7 +8,6 @@ Helper to start a local server and start a process on connection with I/O binded
 From another terminal:
 
     $ nc localhost 12312
-
     Your name: foo
     Hello  foo  from  ['./hello', 'a', 'b', 'c']
 
